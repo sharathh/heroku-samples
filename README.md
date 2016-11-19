@@ -14,11 +14,14 @@ Pre-Requisites:
 	5. Maven 3.3.3
 	6. Create heroku app with new relic add on
 
-Build the project from root directory:
+Build the project from root directory (heroku-samples):
+
+
 	mvn clean install
 	heroku login
 	<Enter heroku email id>
 	<Enter heroku password>
+
 
 To deploy to heroku and enable java new relic use one of the below mentioned ways
 
