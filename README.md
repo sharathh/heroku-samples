@@ -17,14 +17,16 @@ Pre-Requisites:
 
 Heroku Executable Jar Deployment 
 
-heroku deploy:jar -j <jarname> -i newrelic.jar:newrelic.yml --app  <herokuappname>
+	heroku deploy:jar -j <jarname> -i newrelic.jar:newrelic.yml --app  <herokuappname>
 
 For this sample app i have used as below:
 
-heroku deploy:jar -j microservice-1.0.0.jar -i newrelic.jar:newrelic.yml --app  java-heroku-newrelic-sample
+	heroku deploy:jar -j microservice-1.0.0.jar -i newrelic.jar:newrelic.yml --app  java-heroku-newrelic-sample
 
 On successful deployment to heroku using either heroku deploy:jar for executable jar or using heroku maven plugin:
 
 You can access the heroku app for the dummy rest service using below url
+
 		https://java-heroku-newrelic-sample.herokuapp.com/ms
 
+Here java-heroku-newrelic-sample should be replaced with your heroku app name.
