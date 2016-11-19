@@ -22,6 +22,13 @@ Build the project from root directory (heroku-samples):
 	<Enter heroku email id>
 	<Enter heroku password>
 
+Edit the newrelic.yml file to update the license key  (once newrelic heroku addon has been added then goto the heroku app settings and copy the config var NEW_RELIC_LICENSE_KEY) and specify application name
+
+	cd heroku-samples/src/deploy/newrelic
+	open newrelic.yml in your favourite text editor
+	change the value of license_key to your newrelic license key
+	change the value of app_name to whatever name you want in all applicable places
+	
 
 To deploy to heroku and enable java new relic use one of the below mentioned ways
 
