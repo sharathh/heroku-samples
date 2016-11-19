@@ -31,6 +31,7 @@ To deploy to heroku and enable java new relic use one of the below mentioned way
 		heroku deploy:jar -j microservice-1.0.0.jar -i newrelic.jar:newrelic.yml --app  java-heroku-newrelic-sample
 
 2. Deploy to heroku via heroku-maven-plugin with newrelic jar included to slug
+
 		cd heroku-samples/src/deploy/maven-heroku-deploy
 		mvn clean heroku:deploy
 		
