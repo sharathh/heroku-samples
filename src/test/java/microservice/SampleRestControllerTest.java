@@ -21,7 +21,7 @@ public class SampleRestControllerTest {
     private MockMvc mockMvc;
 	
 	@Test
-    public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
+    public void noParamEchoShouldReturnDefaultMessage() throws Exception {
 
         this.mockMvc.perform(get("/ms")).andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("$").value("Sample Rest Service"));
