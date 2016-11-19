@@ -29,6 +29,7 @@ To deploy to heroku and enable java new relic use one of the below mentioned way
 
 		cd heroku-samples/src/deploy/heroku-executable-deploy
 		sh herokupush
+		
 		PS Note: heroku deploy:jar -j <jarname> -i newrelic.jar:newrelic.yml --app  <herokuappname>
 		For this sample app in herokupush i have used as below:
 		heroku deploy:jar -j microservice-1.0.0.jar -i newrelic.jar:newrelic.yml --app  java-heroku-newrelic-sample
@@ -38,10 +39,14 @@ To deploy to heroku and enable java new relic use one of the below mentioned way
 		cd heroku-samples/src/deploy/maven-heroku-deploy
 		mvn clean heroku:deploy
 		
+		PS Note: here is pom.xml currently the value of app name is <appName>java-heroku-newrelic-sample</appName> you need to change it to your heroku app name
+		
 On successful deployment to heroku using either heroku deploy:jar for executable jar or using heroku maven plugin:
 
 You can access the heroku app for the dummy rest service using below url
 
 		https://java-heroku-newrelic-sample.herokuapp.com/ms
+		
+		PS Note: https://<yourheroku-app-name>/ms
 
 Here java-heroku-newrelic-sample should be replaced with your heroku app name.
