@@ -1,0 +1,9 @@
+#!/bin/bash -x
+
+rm microservice-1.0.0.jar
+rm newrelic.jar
+rm newrelic.yml
+cp -v ../../../target/microservice-1.0.0.jar .
+cp -v ../newrelic/newrelic.jar .
+cp -v ../newrelic/newrelic.yml .
+heroku deploy:jar -j microservice-1.0.0.jar -i newrelic.jar:newrelic.yml --app  java-heroku-newrelic-sample

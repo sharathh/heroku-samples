@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sample</groupId>
+  <artifactId>microservice</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>Heroku new relic deployment</name>
+    <url>http://maven.apache.org</url>
+    
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>1.0.3</version>
+          <configuration>
+              <appName>java-heroku-newrelic-sample</appName>
+              <jdkVersion>1.8</jdkVersion>
+              <processTypes>
+                  <web>java $JAVA_OPTS -Dserver.port=$PORT -jar target/microservice-1.0.0.jar</web>
+              </processTypes>
+              <configVars>
+                  <JAVA_OPTS>-javaagent:newrelic.jar</JAVA_OPTS>
+              </configVars>
+              <includes>
+  				<include>newrelic.jar</include>
+  				<include>newrelic.yml</include>
+  				<include>microservice-1.0.0.jar</include>
+			  </includes>
+          </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>../../../target/</directory>
+                    <includes>
+         			    <include>microservice-1.0.0.jar</include>
+          			</includes>
+          			<filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>../newrelic/</directory>
+                  <includes>
+         			    <include>newrelic.jar</include>
+         			     <include>newrelic.yml</include>
+         			     <filtering>true</filtering>
+          			</includes>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
